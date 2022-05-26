@@ -6,6 +6,8 @@ from OpenGL.GL import *
 
 class Mesh:
     def __init__(self, prog_id: int) -> None:
+        self.mouse_pos = pg.mouse.get_pos()
+
         self.verts = [
             [-1, -1, 0],
             [-1,  1, 0],
@@ -56,9 +58,11 @@ class Mesh:
         timer_id = glGetUniformLocation(self.prog_id, "iTime")
         glUniform1f(timer_id, pg.time.get_ticks()*0.001)
         
-        mouse_pos = pg.mouse.get_pos()
+        if pg.mouse.get_pressed()[0]:
+            self.mouse_pos = pg.mouse.get_pos()
+        
         mouse_id = glGetUniformLocation(self.prog_id, "iMouse")
-        glUniform2f(mouse_id, mouse_pos[0], mouse_pos[1])
+        glUniform2f(mouse_id, self.mouse_pos[0], self.mouse_pos[1])
 
         glBindVertexArray(self.vao_ref)
         glDrawArrays(GL_TRIANGLES, 0, self.vert_count)
