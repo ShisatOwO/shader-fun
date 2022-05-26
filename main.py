@@ -5,8 +5,8 @@ import shutil
 
 from typing import Optional
 
-from py_shader_toy.app import App
-from py_shader_toy.mesh import Mesh
+from py_shaderfun.app import App
+from py_shaderfun.mesh import Mesh
 from gl_util import *
 
 
