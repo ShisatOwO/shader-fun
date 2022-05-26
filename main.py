@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os
 import sys
 import typer
@@ -10,8 +12,8 @@ from py_shaderfun.mesh import Mesh
 from gl_util import *
 
 
-#SHADERFUN_FOLDER = "/opt/shaderfun/"
-SHADERFUN_FOLDER = "shaderfun/"
+SHADERFUN_FOLDER = "/opt/shaderfun/"
+#SHADERFUN_FOLDER = "shaderfun/"
 
 
 

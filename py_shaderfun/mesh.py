@@ -32,8 +32,9 @@ class Mesh:
         
         pos_ref  = glGenBuffers(1)
         pos_data = np.array(self.verts, np.float32)
-        pos_id   = glGetAttribLocation(self.prog_id, "position")
+        pos_id   = 0
         
+        glBindAttribLocation(self.prog_id, pos_id, "position")
         glBindBuffer(GL_ARRAY_BUFFER, pos_ref)
         glVertexAttribPointer(pos_id, 3, GL_FLOAT, False, 0, None)
         glEnableVertexAttribArray(pos_id)
@@ -42,8 +43,9 @@ class Mesh:
         
         uv_ref  = glGenBuffers(1)
         uv_data = np.array(self.uvs, np.float32)
-        uv_id   = glGetAttribLocation(self.prog_id, "vertex_uv")
+        uv_id   = 1
 
+        glBindAttribLocation(self.prog_id, uv_id, "vertex_uv")
         glBindBuffer(GL_ARRAY_BUFFER, uv_ref)
         glVertexAttribPointer(uv_id, 2, GL_FLOAT, False, 0, None)
         glEnableVertexAttribArray(uv_id)
